@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Usuarios{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Usuarios Registrados</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Fecha de Registro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.rol }}</td>
+                <td>{{ usuario.fecha_registro }}</td>
+                <td>
+                    <a href="{{ url_for('admin.editar_usuario', id=usuario.id) }}" class="btn btn-sm btn-primary">Editar</a>
+<a href="{{ url_for('admin.eliminar_usuario', id=usuario.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
+<a href="{{ url_for('admin.registrar_usuario') }}" class="btn btn-sm btn-primary">Agregar Usuario</a>
+               </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('admin.dashboard') }}" class="btn btn-secondary mt-3">Volver al Panel</a>
+</div>
+{% endblock %}

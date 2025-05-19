@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Registrar Nueva Consulta</h2>
+
+<form method="POST">
+    <div>
+        <label for="paciente_id">Paciente:</label>
+        <select name="paciente_id" required>
+            {% for paciente in pacientes %}
+            <option value="{{ paciente['id'] }}">{{ paciente['nombre'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required>
+    </div>
+
+    <div>
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" rows="4" required></textarea>
+    </div>
+
+    <button type="submit">Registrar</button>
+</form>
+
+<a href="{{ url_for('medico.dashboard') }}">Volver al dashboard</a>
+{% endblock %}

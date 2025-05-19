@@ -1,0 +1,13 @@
+<!-- app/templates/paciente/dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel del Paciente</title>
+</head>
+<body>
+    <h1>Bienvenido, {{ usuario }}!</h1>
+    <a href="{{ url_for('paciente.dashboard') }}">Editar mis datos</a>
+    <a href="{{ url_for('paciente.historial') }}">Ver historial médico</a>
+    <a href="{{ url_for('paciente.editar_datos') }}">Editar datos</a>
+</body>
+</html>

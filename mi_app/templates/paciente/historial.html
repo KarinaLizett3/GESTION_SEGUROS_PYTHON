@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Historial Médico</h2>
+
+{% if consultas %}
+    <ul>
+    {% for consulta in consultas %}
+        <li>
+            <strong>Fecha:</strong> {{ consulta.fecha }}<br>
+            <strong>Médico:</strong> {{ consulta.medico }}<br>
+            <strong>Descripción:</strong> {{ consulta.descripcion }}
+        </li>
+        <hr>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tienes consultas médicas registradas aún.</p>
+{% endif %}
+{% endblock %}

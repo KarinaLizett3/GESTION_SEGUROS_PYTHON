@@ -1,0 +1,46 @@
+<!-- Agrega estos links en el <head> o justo antes del cierre de </body> -->
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+<!-- Tabla HTML -->
+<table id="tablaPacientes" class="display">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Fecha Nacimiento</th>
+            <th>NSS</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in pacientes %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.fecha_nacimiento }}</td>
+            <td>{{ p.nss }}</td>
+            <td>{{ p.telefono }}</td>
+            <td>{{ p.direccion }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+$(document).ready( function () {
+    $('#tablaPacientes').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/es-ES.json'  // Traducción al español
+        }
+    });
+});
+</script>

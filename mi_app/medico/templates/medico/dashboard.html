@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Bienvenido, Dr. {{ nombre }}</h2>
+
+{% endblock %}
+    <div class="mt-4">
+        <a href="{{ url_for('medico.registrar_consulta') }}" class="btn btn-primary mb-2">Registrar Consulta</a>
+        <a href="{{ url_for('medico.registrar_paciente') }}" class="btn btn-success mb-2">Registrar Paciente</a>
+        <a href="{{ url_for('medico.listar_pacientes') }}" class="btn btn-info mb-2">Ver Pacientes</a>
+        <a href="{{ url_for('medico.generar_reporte') }}" class="btn btn-secondary mb-2">Generar Reporte</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Datos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Editar tus datos</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" value="{{ paciente.nombre }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" name="fecha_nacimiento" value="{{ paciente['fecha_nacimiento'] }}">
+        </div>
+        <div class="mb-3">
+            <label for="nss" class="form-label">NSS</label>
+            <input type="text" class="form-control" name="nss" value="{{ paciente['nss'] }}">
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" name="telefono" value="{{ paciente['telefono'] }}">
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" name="direccion" value="{{ paciente['direccion'] }}">
+        </div>
+        <button type="submit" class="btn btn-success">Guardar cambios</button>
+    </form>
+</div>
+{% endblock %}

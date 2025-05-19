@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Historial Clínico de {{ paciente.nombre }}</h2>
+
+<h3>Antecedentes Médicos</h3>
+<ul>
+  {% for ant in antecedentes %}
+    <li><strong>{{ ant.tipo }}:</strong> {{ ant.descripcion }} ({{ ant.fecha_registro }})</li>
+  {% else %}
+    <li>No hay antecedentes médicos registrados.</li>
+  {% endfor %}
+</ul>
+
+<h3>Consultas Médicas</h3>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Motivo</th>
+      <th>Diagnóstico</th>
+      <th>Tratamiento</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for consulta in consultas %}
+    <tr>
+      <td>{{ consulta.fecha }}</td>
+      <td>{{ consulta.motivo }}</td>
+      <td>{{ consulta.diagnostico }}</td>
+      <td>{{ consulta.tratamiento }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="4">No hay consultas registradas.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

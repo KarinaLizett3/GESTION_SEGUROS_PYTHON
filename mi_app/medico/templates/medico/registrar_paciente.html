@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Paciente{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Registrar Nuevo Paciente</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Usuario existente:</label>
+            <select name="usuario_id" class="form-control" required>
+                <option value="">Seleccione un usuario...</option>
+                {% for u in usuarios %}
+                    <option value="{{ u.id }}">{{ u.nombre }} (ID: {{ u.id }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Fecha de nacimiento:</label>
+            <input type="date" name="fecha_nacimiento" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>NSS:</label>
+            <input type="text" name="nss" class="form-control" pattern="\d{11}" maxlength="11" minlength="11" required title="Debe contener exactamente 11 dígitos numéricos">
+        </div>
+        <div class="form-group">
+            <label>Teléfono:</label>
+            <input type="text" name="telefono" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Dirección:</label>
+            <input type="text" name="direccion" class="form-control">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+{% endblock %}

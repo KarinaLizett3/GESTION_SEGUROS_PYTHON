@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Reporte de Consultas</h2>
+
+{% if consultas %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped bg-white text-dark">
+            <thead class="table-dark">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>Motivo</th>
+                    <th>Síntomas</th>
+                    <th>Diagnóstico</th>
+                    <th>Tratamiento</th>
+                    <th>Consulta Actual</th>
+                    <th>Consulta Próxima</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for consulta in consultas %}
+                <tr>
+                    <td>{{ consulta.fecha }}</td>
+                    <td>{{ consulta.paciente_nombre }}</td>
+                    <td>{{ consulta.motivo }}</td>
+                    <td>{{ consulta.sintomas }}</td>
+                    <td>{{ consulta.diagnostico }}</td>
+                    <td>{{ consulta.tratamiento }}</td>
+                    <td>{{ consulta.consulta_actual }}</td>
+                    <td>{{ consulta.consulta_proxima }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p class="alert alert-warning">No hay consultas registradas para mostrar.</p>
+{% endif %}
+
+<a href="{{ url_for('medico.dashboard') }}" class="btn btn-secondary mt-3">Volver al Dashboard</a>
+{% endblock %}

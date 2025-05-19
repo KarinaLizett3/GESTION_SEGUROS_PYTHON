@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Administrador{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Bienvenido, {{ usuario }}</h1>
+    <p>Desde aquí puedes gestionar los módulos disponibles:</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Usuarios</h5>
+                    <p class="card-text">Agregar, editar y eliminar usuarios del sistema.</p>
+                    <a href="{{ url_for('admin.listar_usuarios') }}" class="btn btn-primary">Entrar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Seguros</h5>
+                    <p class="card-text">Administración de seguros activos.</p>
+                    <a href="#" class="btn btn-primary">Entrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

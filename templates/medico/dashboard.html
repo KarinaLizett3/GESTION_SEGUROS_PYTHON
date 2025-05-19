@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Médico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <h1>Bienvenido, Dr(a). {{ nombre }}</h1>
+
+    <h2>Panel de Control</h2>
+    <ul>
+        <li><a href="{{ url_for('medico.registrar_consulta') }}">Registrar consulta</a></li>
+        <li><a href="{{ url_for('medico.registrar_paciente') }}">Registrar paciente</a></li>
+        <li><a href="{{ url_for('medico.eliminar_paciente') }}">Eliminar paciente</a></li>
+        <li><a href="{{ url_for('medico.actualizar_paciente') }}">Actualizar paciente</a></li>
+        <li><a href="{{ url_for('medico.generar_reporte') }}">Generar reporte</a></li>
+    </ul>
+
+    <p><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></p>
+</body>
+</html>

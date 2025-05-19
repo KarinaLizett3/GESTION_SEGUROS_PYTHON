@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .login-form {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        font-size: 1.1rem; /* Aumenta tamaño general */
+    }
+
+    .login-form h2 {
+        font-size: 4.5rem; 
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .form-control {
+        font-size: 1.05rem;
+    }
+
+    .btn-primary {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+</style>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+        <h4 class="mb-4 text-center">Iniciar Sesión</h4>
+        <form method="POST">
+            <label for="email">Correo:</label>
+            <input type="email" name="email" required><br>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" name="contrasena" required><br>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p><a href="{{ url_for('auth.registro_usuario') }}">Registrarse</a></p>        
+    </div>
+</div>
+{% endblock %}

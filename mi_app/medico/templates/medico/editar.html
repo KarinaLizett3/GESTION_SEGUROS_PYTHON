@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Editar paciente</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" id="nombre" name="nombre" value="{{ paciente.nombre }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ paciente.fecha_nacimiento }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="nss" class="form-label">NSS</label>
+            <input type="text" id="nss" name="nss" value="{{ paciente.nss }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" id="telefono" name="telefono" value="{{ paciente.telefono }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" id="direccion" name="direccion" value="{{ paciente.direccion }}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="{{ url_for('medico.listar_pacientes') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

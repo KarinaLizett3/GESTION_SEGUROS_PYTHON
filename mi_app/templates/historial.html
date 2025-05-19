@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Historial de Consultas{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Tu historial de consultas</h2>
+
+    {% if consultas %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Médico</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for consulta in consultas %}
+                    <tr>
+                        <td>{{ consulta['fecha'] }}</td>
+                        <td>{{ consulta['medico'] }}</td>
+                        <td>{{ consulta['descripcion'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay consultas registradas aún.</p>
+    {% endif %}
+</div>
+{% endblock %}
