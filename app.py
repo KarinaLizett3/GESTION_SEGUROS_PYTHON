@@ -5,7 +5,7 @@ from mi_app.administrador.routes import admin_bp
 from mi_app.medico.routes import medico_bp 
 
 
-
+app = Flask(__name__)
 app = Flask(__name__, template_folder='mi_app/templates')
 app.secret_key = 'clave_secreta_super_segura'  # Cambiar por una más segura en producción
 
